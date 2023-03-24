@@ -71,7 +71,7 @@ c_t = cos(theta);
 s_t = sin(theta);
 c_p = cos(phi);
 s_p = sin(phi);
-% Homogeneus Matrix
+% Homogeneous Matrix
 T = [c_p*c_p*c_t + s_p*s_p, c_p*s_p*(c_t-1),       c_p*s_t, r*c_p*(1-c_t);
      c_p*s_p*(c_t-1),       s_p*s_p*c_t + c_p*c_p, s_p*s_t, r*s_p*(1-c_t);
     -c_p*s_t,              -s_p*s_t,               c_t,     r*s_t;
