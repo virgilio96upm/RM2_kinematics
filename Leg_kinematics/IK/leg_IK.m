@@ -25,6 +25,9 @@ a1 = -2*(P_X - R*cos(Phi))*L1;
 b1 = -2*(P_Y - R*sin(Phi))*L1;
 c1 = (a1/(-2*L1))^2 + (b1/(-2*L1))^2 + L1^2 - l1^2;
 t1 = (-b1 - sqrt(b1^2 - c1^2 + a1^2))/(c1 - a1);
+if (b1^2 + a1^2)<= c1^2
+  error("No real value can be obtained")
+else
 q1_rad = 2*atan(t1);
 
 q1 = rad2deg(q1_rad);% M1 deg
@@ -33,6 +36,9 @@ a2 = -2*(P_X - D_1)*L2;
 b2 = -2*(P_Y)*L2;
 c2 = (a2/(-2*L2))^2 + (b2/(-2*L2))^2 + L2^2 - l2^2;
 t2 = (-b2 - sqrt(b2^2 - c2^2 + a2^2))/(c2 - a2);
+if (b2^2 + a2^2)<= c2^2
+  error("No real value can be obtained")
+else
 q2_rad = 2*atan(t2);
 
 q2 = rad2deg(q2_rad); % M2 deg
@@ -41,6 +47,9 @@ a3 = -2*(P_X-(D_1+D_2))*L3;
 b3 = -2*(P_Y)*L3;
 c3 = (a3/(-2*L3))^2 + (b3/(-2*L3))^2 + L3^2 - l3^2;
 t3 = (-b3 + sqrt(b3^2 - c3^2 + a3^2))/(c3 - a3);
+if (b3^2 + a3^2)<= c3^2
+  error("No real value can be obtained")
+else
 q3_rad = 2*atan(t3);
 
 q3 = rad2deg(q3_rad); % M3 deg
