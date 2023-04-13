@@ -38,6 +38,9 @@ function [x,y,phi] = dir_kin(q1,q2,q3)
     w1 = (f3-f2)^2 - (d2*(f3-f2)*(d3-d2)) + f2*(d3-d2)^2;
 
     B_y = (-v1 + sqrt(v1^2 - 4*u1*w1))/(2*u1); % y coordinate of point P
+    if (4*u1*w1)>v1^2
+        error("Not feasable pose can be obtained because the given values result in a singularity")
+    else
     B_x = -((e3-e2)*B_y + (f3-f2))/((d3-d2)); % x coordinate of point P
 
 
@@ -46,6 +49,9 @@ function [x,y,phi] = dir_kin(q1,q2,q3)
     w2 = (B_x-L1x)^2 + (B_y-L1y)^2 - l1^2 + R^2;
 
     t = (-v2 - sqrt(v2^2 - w2^2 + u2^2))/(w2-u2);
+    if (w2^2 + u2^2)<= v2^2
+        error("Not feasable pose can be obtained because the given values result in a singularity")
+    else
     phi_rad = 2*atan(t); % orientation of the end effector
     
     % coordinates of the end effector
